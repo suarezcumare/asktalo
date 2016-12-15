@@ -1,4 +1,5 @@
-source 'https://rubygems.org'
+ruby '2.2.2'
+source'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -61,8 +62,8 @@ group :development do
 end
 
 group :production do
-  gem 'rails_serve_static_assets', github: 'heroku/rails_serve_static_assets'
   gem 'rails_12factor'
+  gem "rails_serve_static_assets"
 end
 
 group :test do

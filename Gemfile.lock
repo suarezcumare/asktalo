@@ -1,9 +1,3 @@
-GIT
-  remote: git://github.com/heroku/rails_serve_static_assets.git
-  revision: 239b9d0c6cf54a1f8a33b02177774410900cf10e
-  specs:
-    rails_serve_static_assets (0.0.4)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -164,6 +158,7 @@ GEM
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
     rails_stdout_logging (0.0.4)
     railties (4.2.5)
       actionpack (= 4.2.5)
@@ -275,7 +270,7 @@ DEPENDENCIES
   pg
   rails (= 4.2.5)
   rails_12factor
-  rails_serve_static_assets!
+  rails_serve_static_assets
   rspec
   rspec-autotest
   rspec-rails
@@ -289,5 +284,8 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
 
+RUBY VERSION
+   ruby 2.2.2p95
+
 BUNDLED WITH
-   1.10.6
+   1.13.2
