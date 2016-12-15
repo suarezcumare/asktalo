@@ -6,4 +6,4 @@ Realizado para aplicar los conocimientos de TDD y Rails
 Usando : factory_girl_rails, faker, rspec-rails' y otras gemas
 
 
-Url:  http://suarezcumare-asktalo.herokuapp.com/
+Url:  http://asktalo.herokuapp.com
