@@ -1,0 +1,62 @@
+<div class="last-questions">
+  <div class="last-questions-title">
+    <i class="fa fa-tasks fa-fw"></i> Questions Last <%= @user_general.first_name %>'s
+  </div>
+  <div class="last-questions-lists">
+  <% if @questionslasts.length > 0 %>
+    <% @questionslasts.each do |questionslasts|  %>
+      <div class="list-group">
+        <%= link_to questionslasts, class: "list-group-item"  do %>
+          <i class="fa fa-comment fa-fw"></i>
+            <%= questionslasts.description_min(0,15) %>
+          <span class="pull-right text-muted small">
+            <em><%= time_ago_in_words questionslasts.created_at %> ago</em>
+          </span>
+        <% end %>
+      </div>
+    <% end %>
+  <%= link_to "View Recent", recent_path, class: "btn btn-default btn-block" %>
+  <% else %>
+    <h4 class="text-center">No questions</h4>
+  <% end %>
+  </div>
+</div>
+
+<% if current_user && current_user.id != nil %>
+  <div class="last-questions">
+    <div class="last-questions-title">
+      <i class="fa fa-tasks fa-fw"></i> My Questions Lasts
+    </div>
+    <div class="last-questions-lists">
+      <% if @questionslastsmine.empty? %>
+        <div class="list-group">
+          <h4 class="text-center"> Your are not questions</h4>
+        </div>
+      <% else %>
+        <% @questionslastsmine.each do |questionslastsmine|  %>
+          <div class="list-group">
+            <%= link_to questionslastsmine, class: "list-group-item"  do %>
+              <i class="fa fa-comment fa-fw"></i>
+                <%= questionslastsmine.description_min(0,15) %>
+              <span class="pull-right text-muted small">
+                <em><%= time_ago_in_words questionslastsmine.created_at %> ago
+                </em>
+              </span>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <div class="last-questions">
+    <div class="last-questions-title">
+      <i class="fa fa-tasks fa-fw"></i> Recomendation
+    </div>
+    <div class="last-questions-lists">
+        <div class="list-group">
+          <h4 class="text-center"> sign in and you can ask</h4>
+        </div>
+    </div>
+  </div>
+<% end %>

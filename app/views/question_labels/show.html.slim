@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Question:
+  = @question_label.question
+p
+  strong Label:
+  = @question_label.label
+
+= link_to 'Edit', edit_question_label_path(@question_label)
+'|
+= link_to 'Back', question_labels_path

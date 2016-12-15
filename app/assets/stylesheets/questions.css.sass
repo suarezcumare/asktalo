@@ -1,0 +1,60 @@
+@import "bootstrap"
+
+
+=margin-top($top)
+  margin-top: $top
+
+.questions
+
+  .tab-questions
+    @extend .nav
+    @extend .nav-tabs
+    @extend .pull-right
+
+  .tab-questions-content
+    @extend .tab-content
+
+    .table-tab-questions
+      @extend .tab-pane
+      @extend .fade
+      @extend .in
+
+
+      table.table-questions
+        @extend .table
+        @extend .table-striped
+
+        tbody
+          td.text-table
+            @extend .text-center
+
+
+.last-questions
+  @extend .panel
+  @extend .panel-primary
+
+
+  .last-questions-title
+    @extend .panel-heading
+
+  .last-questions-list
+    @extend .panel-body
+
+    .list-group
+      @extend .list-group
+
+
+.img-size
+  width: 50px
+  height: 50px
+
+.show-questions
+  padding-top: 50px
+
+.size-select-multiple
+  width: 300px
+
+
+.label-question-padding
+  margin-left: 4px
+  margin-right: 4px

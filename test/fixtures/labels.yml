@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyStringone
+  description: MyTextone
+  available: false
+
+two:
+  name: MyStringone
+  description: MyTextone
+  available: false

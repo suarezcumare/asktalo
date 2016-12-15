@@ -1,0 +1,42 @@
+.container
+  .col-lg-4.col-md-4.col-sm-4
+  .col-lg-4.col-md-4.col-sm-4
+    .panel-login
+      =image_tag "asktalo-logo.png", :class => "img-responsive center-block"
+      .panel-body-login
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = devise_error_messages!
+          .form-group
+            = f.label :first_name
+            = f.text_field :first_name, :class => 'form-control', autofocus: true
+
+          .form-group
+            = f.label :last_name
+            = f.text_field :last_name, :class => 'form-control'
+
+          .form-group
+            =f.label :email
+            = f.email_field :email, class: "form-control", placeholder: "Enter email"
+              .small This email address is where all correspondence will be sent
+
+          .form-group
+            = f.label :password
+            - if @minimum_password_length
+               em
+                 |   (
+                 = @minimum_password_length
+                 |  characters minimum)
+
+            = f.password_field :password, class: "form-control", placeholder: "Password", autocomplete: "off"
+          .form-group
+            = f.label :password_confirmation
+            = f.password_field :password_confirmation, class: "form-control", placeholder: "Password", autocomplete: "off"
+
+          = f.submit "Submit", class: "btn btn-success btn-block"
+
+
+        = render partial: 'shared/messages'
+        .ubication-links-login
+          span Already have an account?
+          =link_to "  Log in", new_session_path(resource_name)
+  .col-lg-4.col-md-4.col-sm-4

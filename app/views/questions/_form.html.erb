@@ -1,0 +1,53 @@
+
+
+    <%= form_for(@question) do |f| %>
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, :class => 'form-control' %>
+      </div>
+
+          <div class="form-group">
+
+            <%= hidden_field_tag "question[label_ids][]", nil %>
+            <%= f.select :label_ids, Label.all.map{ |c| [c.name, c.id]}, {}, multiple: true, class: "form-control"%>
+
+          </div>
+
+
+      <div class="actions col-sm-offset-4">
+        <%= f.submit "Save", :class =>'btn btn-md btn-primary'%>
+      </div>
+    <% end %>
+
+
+
+
+ <div class="panel-body">
+     <!-- Button trigger modal -->
+     <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+         Launch Demo Modal
+     </button>
+     <!-- Modal -->
+     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+             <div class="modal-content">
+
+
+                 <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                     <h4 class="modal-title" id="myModalLabel">Add new Label</h4>
+                 </div>
+                 <div class="modal-body">
+                      <%=  render partial: "labels/form"%>
+                 </div>
+                 <div class="modal-footer">
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                     <button type="button" class="btn btn-primary">Save changes</button>
+                 </div>
+             </div>
+             <!-- /.modal-content -->
+         </div>
+         <!-- /.modal-dialog -->
+     </div>
+     <!-- /.modal -->
+ </div>

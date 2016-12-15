@@ -1,0 +1,93 @@
+<div class="container">
+  <h3>Edit Profile</h3>
+  <%= render partial: "shared/messages_general"%>
+  <div class="row edituser">
+    <div class="col-lg-3 col-md-3 col-sm-3">
+      <div class="edituser-left">
+
+          <%= form_for(@user, url: { action: "update_picture" } ) do |f|%>
+          <div class="img-upload">
+          <img src="<%= @user.picture  %>" class="avatar" alt="avatar">
+          <h6>Upload a different photo...</h6>
+              <%= f.file_field :picture, class:"form-control" %>
+             </div>
+
+          <%= f.submit "Update", class: "btn btn-success btn-block" %>
+           <%end%>
+
+        <div>
+          <%= render partial: "users/password_edit"%>
+        </div>
+      </div>
+      <div>
+        <%= render partial: "shared/updating"%>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 edituser-center">
+      <h3>Personal info</h3>
+      <%= form_for(@user, url: { action: "update_user" } ) do |f|%>
+        <div class="form-group">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name,  :class => 'form-control', autofocus: true  %>
+        </div>
+        <div class="form-group">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name,  :class => 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :sex %>
+          Male <%= f.radio_button :sex, true%>
+          Female <%= f.radio_button :sex, false%>
+        </div>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email,  :class => 'form-control'%>
+        </div>
+        <div class="form-group">
+          <%= f.label :occupation %>
+          <%= f.text_area :occupation,  :class => 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :biography %>
+          <%= f.text_area :biography,  :class => 'form-control' %>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="form-group">
+              <%= f.label :twitter %>
+              <%= f.text_field :twitter,  :class => 'form-control', placeholder: "Twiter user"  %>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="form-group">
+              <%= f.label :linkedin %>
+              <%= f.text_field :linkedin,  :class => 'form-control', placeholder: "Linkedin user"  %>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="form-group">
+              <%= f.label :github %>
+              <%= f.text_field :github,  :class => 'form-control', placeholder: "Github user"  %>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="actions">
+          <%= f.submit "Update", class: "btn btn-success btn-block" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-3 edituser-right">
+        <%= render  "users/sections/social_media"%>
+
+
+          <div>
+              <%= render "questions/sections/questions_last"%>
+          </div>
+    </div>
+
+
+  </div>
+</div>

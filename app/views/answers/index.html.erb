@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-lg-2 col-md-2 col-sm-2"> </div>
+  <div class="col-lg-8 col-mg-8 col-sm-8">
+
+    <div class="media">
+<div class="media-left">
+
+</div>
+<div class="media-body">
+  <h4 class="media-heading">  <%= @question.name.capitalize %></h4>
+         <p > <%= @question.description %> </p>
+
+        <hr><hr>
+
+        <div class="col-sm-offset-2">
+          <% @question.answers.each do |answer| %>
+
+           <div class="media" style="margin-top:60px;">
+           <div class="media-left">
+               <% if current_user %>
+                 <% if current_user.id == @question.user_id %>
+                   <%= radio_button_tag(:check, "a" ) %>
+
+               <% else %>
+                     <a href="#">
+                       <span class="fa-stack fa-ls">
+                         <i class="fa fa-circle fa-stack-2x"></i>
+                         <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+                     </span>
+                       </a>
+                     <a href="#">
+                       <span class="fa-stack fa-ls">
+                         <i class="fa fa-circle fa-stack-2x"></i>
+                         <i class="fa fa-minus fa-stack-1x fa-inverse"></i>
+                       </span>
+                     </a>
+               <% end %>
+             <% end %>
+
+           </div>
+           <div class="media-body">
+             <h4 class="media-heading"> <%=  %> </h4>
+               <p class="label-default"> <%= answer.description %> </p>
+           </div>
+           </div>
+           <hr>
+         <% end %>
+        </div>
+
+
+</div>
+</div>
+
+<% if current_user %>
+    <% if current_user.id == @question.user_id %>
+
+        <div class="pull-right">
+          <%= link_to 'Edit', edit_question_path(@question) %> |
+          <%= link_to 'Back', questions_path %>
+        </div>
+
+    <% else %>
+         <%= render "new" %>
+    <% end %>
+<% else %>
+     <%= render "new" %>
+<% end %>
+
+  </div>
+    <div class="col-lg-2 col-mg-2 col-sm-2"> </div>
+
+</div>

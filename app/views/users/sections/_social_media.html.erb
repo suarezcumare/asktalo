@@ -1,0 +1,28 @@
+<div class="social-redes bg-info">
+  <h4> Social Media </h4>
+
+  <a href="https://twitter.com/<%= @user_general.twitter %>" class="twitter-follow-button" data-show-count="true"></a>
+  <script src="https://platform.twitter.com/widgets.js" type="text/javascript"></script>
+
+
+  <div class="button-social">
+    <% if @user_general.twitter != "" && ! @user_general.twitter.nil? %>
+      <a href="https://www.twitter.com/<%= @user_general.twitter  %>" target="_blank" class="btn btn-primary btn-circle" title="Twitter" role="button"><i class="fa fa-twitter"></i></a>
+    <%end%>
+    <% if @user_general.github != "" && ! @user_general.github.nil? %>
+      <a href="https://www.github.com/<%= @user_general.github  %>" target="_blank" class="btn btn-success btn-circle" title="github" role="button"><i class="fa fa-github"></i></a>
+    <%end%>
+    <% if @user_general.linkedin != "" && ! @user_general.linkedin.nil? %>
+      <a href="https://www.linkedin.com/<%= @user_general.linkedin  %>" target="_blank" class="btn btn-info btn-circle" title="linkedin" role="button"><i class="fa fa-linkedin"></i></a>
+    <%end%>
+
+    <% if ( @user_general.linkedin != "" || ! @user_general.linkedin.nil? ) ||
+      ( @user_general.github != "" || ! @user_general.github.nil?  ) ||
+       (@user_general.twitter != "" || ! @user_general.twitter.nil? ) %>
+       <h4> Remember to add your social networks</h4>
+    <%end%>
+
+
+  </div>
+
+</div>

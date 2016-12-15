@@ -1,0 +1,54 @@
+<div class="container">
+ <div class="col-lg-8 col-md-8 col-sm-8">
+  <%= render "shared/messages_general"%>
+  <div class="questions">
+    <h4 class="text-primary">Questions</h4>
+    <ul class="tab-questions">
+      <li class="active"><a href="#generalanswer" role="tab" data-toggle="tab">
+        General Questions <span class="badge"><%= @questions.count %></span> </a>
+      </li>
+      <% if current_user && current_user.id != nil %>
+        <li><a href="#myquestions" role="tab" data-toggle="tab">    My Questions
+          <span class="badge success"><%= @myquestions.count %></span></a>
+        </li>
+        <li><a href="#myquestionsColaboration" role="tab" data-toggle="tab">    My Questions
+          <span class="badge success"><%= @myquestionscolaborations.count %></span></a>
+        </li>
+      <%end%>
+    </ul>
+    <div class="tab-questions-content">
+      <div class="table-tab-questions active" id="generalanswer">
+            <%= render "questions/sections/question_all" %>
+         </div>
+         <% if current_user && current_user.id != nil %>
+           <div class="table-tab-questions" id="myquestions">
+                <%= render "questions/sections/question_mine" %>
+           </div>
+
+           <div class="table-tab-questions" id="myquestionsColaboration">
+             <%= render "questions/sections/question_colaboration" %>
+           </div>
+        <%end%>
+       </div>
+   </div>
+<% if current_user && current_user.id != nil %>
+
+  <div class="panel-body bg-warning">
+      <div class="col-lg-3 col-md-3 col-xs-3">
+          <%= link_to 'New Question',  new_question_path, class: "btn btn-success btn-block" %>
+      </div>
+      <div class="col-lg-8 col-md-8 col-xs-8">
+        Adds new questions and will have solcuiones
+      </div>
+
+  </div>
+<% else %>
+  <%= render "shared/sign_in" %>
+<% end %>
+
+ </div>
+
+ <div class="col-lg-4 col-md-4 col-sm-4">
+   <%= render "questions/sections/questions_last" %>
+ </div>
+</div>

@@ -1,0 +1,51 @@
+<table id="example" class="table-questions display">
+  <thead>
+    <tr>
+     <th class="col-lg-1 col-md-1 col-sm-1"></th>
+     <th class="col-lg-1 col-md-1 col-sm-1"></th>
+     <th class="col-lg-1 col-md-1 col-sm-1"></th>
+     <th class="col-lg-9 col-md-9 col-sm-9"></th>
+   </tr>
+  </thead>
+  <tbody>
+    <% @questions.each do |question| %>
+      <tr >
+        <td class="text-table">
+          <span class="badge"><%= question.id %></span>
+          <h6 class="text-primary">  votes </h6 >
+        </td>
+        <td class="text-table">
+          <span class="badge"><%= question.answers.count %></span>
+          <h6 class="text-primary">  answers </h6 >
+        </td>
+        <td class="text-table">
+          <span class="badge"><%= question.view_count %></span>
+          <h6 class="text-primary">  views </h6 >
+        </td>
+        <td class="text-primar">
+          <h6 class="text-left col-md-offset-1">
+            <% if question.solution_question %>
+              <span class="fa-stack fa-ls">
+                <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                <i class="fa fa-check fa-stack-1x fa-inverse "></i>
+              </span>
+            <%end %>
+
+            <%= link_to question  do %>
+              <%= question.description.capitalize %>
+            <% end %>
+           </h6>
+           <div class="col-md-offset-1">
+             <% question.questionLabels.each do |question_label| %>
+                <span class=" label label-default text-left label-question-padding"> <%= question_label.label.name %> </span>
+             <% end %>
+              <strong class="pull-right" style="font-size: 10px;">
+                <%=   question.time_create  %>
+              </strong>
+            </div>
+          </td>
+          <td></td>
+        </tr>
+      <% end %>
+     </tbody>
+   </table>

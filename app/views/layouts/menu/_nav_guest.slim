@@ -1,0 +1,23 @@
+header
+    nav.navbar.nav-color
+      .container-fluid
+        .col-md-offset-8.navbar-header style="padding-left:60px;"
+          button.navbar-toggle.collapsed aria-expanded="false" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          .logo-nav href="#"
+            img.img-logo src="/assets/asktalo-logo.png" /
+        /! Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              = link_to 'home', root_path, :class => 'navbar-link'
+            li
+              = link_to "Sign up", new_user_registration_path, :class => 'navbar-link'
+            li
+              = link_to "Login", new_user_session_path, :class => 'navbar-link'
+
+        /! /.navbar-collapse
+      /! /.container-fluid

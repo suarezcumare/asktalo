@@ -1,0 +1,17 @@
+.container
+  .col-lg-4.col-md-4.col-sm-4
+  .col-lg-4.col-md-4.col-sm-4
+    .panel-login
+      .panel-body-login
+        .text-ubication-login
+          h3 Resend confirmation instructions
+        = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+          .form-group
+            = f.label :email
+            = f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
+
+          = f.submit "Resend confirmation instructions", class: "btn btn-success btn-block"
+
+          .ubication-links-login
+            = render "passenger_users/shared/links"
+  .col-lg-4.col-md-4.col-sm-4

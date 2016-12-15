@@ -1,0 +1,62 @@
+<div class="container">
+  <hr>
+  <div class="row edituser">
+    <div class="col-lg-3 col-md-3 col-sm-3">
+      <div class="edituser-left">
+        <div class="img-description-user">
+
+          <% if @user_general.picture.nil? || @user_general.picture.blank? %>
+                      <img class="avatar" src="/assets/avatar/user.jpg" alt="avatar"/>
+               <% else %>
+
+                        <img class="avatar" src="<%= @user_general.picture %>"  alt="avatar"/>
+               <% end %>
+
+        </div>
+      </div>
+      <div>
+        <%= render partial: "shared/updating"%>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 edituser-center">
+      <h3>Personal info</h3>
+
+        <div class="description-user">
+
+          <h4> Name </h4>
+          <div class="subrayado-min"></div>
+          <p class="user-text-description"> <%= @user_general.full_name.titleize  %> </p>
+
+          <h4> Sex </h4>
+          <div class="subrayado-min"></div>
+          <p class="user-text-description"> <%= @user_general.sex_word.titleize  %> </p>
+
+          <h4> Occupation </h4>
+          <div class="subrayado-min"></div>
+          <p class="user-text-description"> <%= @user_general.occupation.titleize  %> </p>
+
+          <h4> Biography </h4>
+          <div class="subrayado-min"></div>
+          <p class="user-text-description"> <%= @user_general.biography.titleize  %> </p>
+
+          <h4> Email </h4>
+          <div class="subrayado-min"></div>
+          <p class="user-text-description"> <%= @user_general.email  %> </p>
+
+        </div>
+
+
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-3 edituser-right">
+
+      <%= render  "users/sections/social_media"%>
+
+      <div>
+          <%= render "users/sections/questions_last"%>
+      </div>
+
+    </div>
+
+    </div>
+  </div>
+</div>

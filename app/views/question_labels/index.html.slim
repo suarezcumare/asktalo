@@ -1,0 +1,23 @@
+h1 Listing question_labels
+
+table
+  thead
+    tr
+      th Question
+      th Label
+      th
+      th
+      th
+
+  tbody
+    - @question_labels.each do |question_label|
+      tr
+        td = question_label.question
+        td = question_label.label
+        td = link_to 'Show', question_label
+        td = link_to 'Edit', edit_question_label_path(question_label)
+        td = link_to 'Destroy', question_label, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Question label', new_question_label_path
